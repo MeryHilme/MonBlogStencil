@@ -32,11 +32,11 @@ render(){
 <h2>{isNull(art.article) ? art.article : art.article.substring(0,140)}
 </h2>
 <font color="blue" > <h5>{art.autor}</h5></font> 
-<view-details arts={"/details/"+art._id}>
+<stencil-route-link url={"/details/"+art._id}>
 <button>
     More...
 </button>
-</view-details>
+</stencil-route-link>
   <hr></hr>
   </h2>
    

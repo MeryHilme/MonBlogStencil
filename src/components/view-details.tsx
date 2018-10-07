@@ -15,8 +15,24 @@ export class ViewDetails{
  @State() title: string;
  @State() article: string;
  @State() autor: string;
-@Prop() arts : any = [];
-    render(){
+ @Prop() arts : any = [];
+ @State() articles : any[];
+ 
+
+ load(){
+    fetch('https://polymer-101-workshop.cleverapps.io/api/blogpost').then(rsp =>
+   { return rsp.json();
+    
+    })
+ .then(data => {
+     this.articles = data;
+     console.log(this.articles)
+ })
+
+ 
+}
+
+ render(){
 
 if(this.arts){
     this.arts.map((article:any) => {
@@ -24,7 +40,7 @@ if(this.arts){
         return(
 <h2>
    
-    <stencil-router-link url="/details/:_id">
+    <stencil-router-link>
         {article._id}
         < br></br>
         {article.title}
