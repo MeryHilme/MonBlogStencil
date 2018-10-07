@@ -42,9 +42,11 @@ export namespace Components {
   interface PageAllArticlesAttributes extends StencilHTMLAttributes {}
 
   interface ViewDetails {
+    'arts': any;
     'match': MatchResults;
   }
   interface ViewDetailsAttributes extends StencilHTMLAttributes {
+    'arts'?: any;
     'match'?: MatchResults;
   }
 

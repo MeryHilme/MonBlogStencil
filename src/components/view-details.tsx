@@ -2,7 +2,6 @@ import { Component, Prop, State} from '@stencil/core';
 import { MatchResults } from '@stencil/router';
 
 
-
 @Component({
     tag:'view-details',
   // styleUrl: 'all-articles.css',
@@ -12,59 +11,37 @@ import { MatchResults } from '@stencil/router';
 
 export class ViewDetails{
     @Prop() match: MatchResults;
-    @State() art: any;
- @State() data : any = [];
-  
+   // @Prop() match2: MatchResults;
+ @State() title: string;
+ @State() article: string;
+ @State() autor: string;
+@Prop() arts : any = [];
+    render(){
 
- load() {
+if(this.arts){
+    this.arts.map((article:any) => {
 
-        
-    fetch('https://polymer-101-workshop.cleverapps.io/api/blogpost',
-    )
-      
-
-    .then((response: any) => {
-        return response.json()
-      }).then(( data) => {
-        this.data = data;
-      });
-
-  }
-
-
-render(){
         return(
-
+<h2>
+   
+    <stencil-router-link url="/details/:_id">
+        {article._id}
+        < br></br>
+        {article.title}
+        < br></br>
+        {article.autor}
+        < br></br>
   
-       
- <table>
-                <tr>
-                  <td class="title">{this.art.title}</td>
-                  <td></td>
-                </tr> 
-                <tr>
-                  <td>{this.art.article}</td>
-                  <td></td>
-                </tr> 
-                <tr>
-    <td> {this.art.autor} 
-      </td>
-               
-                </tr>
-       
-               </table>
-          )}
-        
- 
+        </stencil-router-link>
 
-  ComponentWillLoad() {
-    let id_art = this.match.params._id;
-    return fetch(`https://polymer-101-workshop.cleverapps.io/api/blogpost/` +id_art)
-      .then(response => response.json())
-      .then(data => {
-        this.art = data;
-      //console.log(data);
-      
-    });
+</h2>
+        
+        )
+    }
+    
+    )
+    
+    }
 }
-  }
+}
+
