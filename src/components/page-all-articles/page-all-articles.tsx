@@ -36,6 +36,10 @@ render(){
 <button>
     More...
 </button>
+<button>
+    Delete...
+</button>
+
 </stencil-route-link>
   <hr></hr>
   </h2>

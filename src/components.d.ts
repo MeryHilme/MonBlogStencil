@@ -35,6 +35,15 @@ export namespace Components {
   interface ArticleDetails {}
   interface ArticleDetailsAttributes extends StencilHTMLAttributes {}
 
+  interface DeleteArticle {
+    'article': any[];
+    'match': MatchResults;
+  }
+  interface DeleteArticleAttributes extends StencilHTMLAttributes {
+    'article'?: any[];
+    'match'?: MatchResults;
+  }
+
   interface EditArticle {}
   interface EditArticleAttributes extends StencilHTMLAttributes {}
 
@@ -61,6 +70,7 @@ declare global {
     'AppProfile': Components.AppProfile;
     'AppRoot': Components.AppRoot;
     'ArticleDetails': Components.ArticleDetails;
+    'DeleteArticle': Components.DeleteArticle;
     'EditArticle': Components.EditArticle;
     'PageAllArticles': Components.PageAllArticles;
     'ViewDetails': Components.ViewDetails;
@@ -73,6 +83,7 @@ declare global {
     'app-profile': Components.AppProfileAttributes;
     'app-root': Components.AppRootAttributes;
     'article-details': Components.ArticleDetailsAttributes;
+    'delete-article': Components.DeleteArticleAttributes;
     'edit-article': Components.EditArticleAttributes;
     'page-all-articles': Components.PageAllArticlesAttributes;
     'view-details': Components.ViewDetailsAttributes;
@@ -110,6 +121,12 @@ declare global {
     new (): HTMLArticleDetailsElement;
   };
 
+  interface HTMLDeleteArticleElement extends Components.DeleteArticle, HTMLStencilElement {}
+  var HTMLDeleteArticleElement: {
+    prototype: HTMLDeleteArticleElement;
+    new (): HTMLDeleteArticleElement;
+  };
+
   interface HTMLEditArticleElement extends Components.EditArticle, HTMLStencilElement {}
   var HTMLEditArticleElement: {
     prototype: HTMLEditArticleElement;
@@ -140,6 +157,7 @@ declare global {
     'app-profile': HTMLAppProfileElement
     'app-root': HTMLAppRootElement
     'article-details': HTMLArticleDetailsElement
+    'delete-article': HTMLDeleteArticleElement
     'edit-article': HTMLEditArticleElement
     'page-all-articles': HTMLPageAllArticlesElement
     'view-details': HTMLViewDetailsElement
@@ -152,6 +170,7 @@ declare global {
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
     'article-details': HTMLArticleDetailsElement;
+    'delete-article': HTMLDeleteArticleElement;
     'edit-article': HTMLEditArticleElement;
     'page-all-articles': HTMLPageAllArticlesElement;
     'view-details': HTMLViewDetailsElement;
