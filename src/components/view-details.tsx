@@ -26,7 +26,7 @@ export class ViewDetails{
     })
  .then(data => {
      this.articles = data;
-     console.log(this.articles)
+   //  console.log(this.articles)
  })
 
  
